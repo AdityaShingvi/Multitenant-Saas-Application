@@ -1,0 +1,80 @@
+head
+  
+    title #{title}
+    |   
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    |   
+    link(href='http://fonts.googleapis.com/css?family=Nunito:400,300', rel='stylesheet', type='text/css')
+    |   
+    link(rel='stylesheet', href='/stylesheets/kanban.css')
+  body
+  .topcorner
+       a(href='/') Logout
+  .topleft
+         a(href='/#{userid}'+'/login') Dashboard
+      center
+        h1 #{title}
+        |   
+    -if(tenant=='kanban')
+      form()
+       table.pure-table.pure-table-horizontal
+         thead
+           tr
+              th To Do 
+              
+              th In Progress 
+                       
+              th In Review
+              
+              th Completed
+          |     
+         tbody
+             tr
+               td #{flag[0]}
+               |         
+               td #{flag[1]}
+              
+               td #{flag[2]}
+               
+               td #{flag[3]}                      
+     if(tenant=='waterfall')
+      form() 
+       .divCells 
+            .col.a Project Completed :: #{c} %       
+        table.pure-table.pure-table-horizontal
+         thead
+            tr
+              th Requested  
+              
+              th In Progress 
+                       
+              th Completed
+         |     
+         tbody
+             tr
+               td #{a} 
+               |         
+               td #{b}
+              
+               td #{c}
+             
+     if(tenant=='scrum')          
+       form() 
+        table.pure-table.pure-table-horizontal
+         thead
+            tr
+              th Burndown Velocity
+              
+              th Remaining Hours  
+              
+              th Estimated Date 
+         |     
+         tbody
+             tr
+               td #{c}
+               
+               td #{a} 
+               |         
+               td #{b}
+                           
+            
